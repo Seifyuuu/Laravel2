@@ -14,8 +14,8 @@ class ColorController extends Controller
      */
     public function index()
     {
-        $colors = Color::all();
-        return view("color", compact("colors"));
+        $color = Color::all();
+        return view("color", compact("color"));
     }
 
     /**
@@ -42,7 +42,7 @@ class ColorController extends Controller
         $color->description = $request->description;
         $color->save();
 
-        return redirect()->view("welcome");
+        return redirect()->route("color.index");
     }
 
     /**
@@ -81,7 +81,7 @@ class ColorController extends Controller
         $color->description = $request->description;
         $color->save();
 
-        return redirect()->back();
+        return redirect()->route("color.index");
     }
 
     /**
@@ -93,6 +93,6 @@ class ColorController extends Controller
     public function destroy(Color $color)
     {
         $color->delete();
-        return redirect()->view("welcome");
+        return redirect()->route("color.index");
     }
 }

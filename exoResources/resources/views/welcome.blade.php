@@ -12,22 +12,14 @@
 
     <br>
     <div style="display: flex; justify-content: center;">
-    <span style="font-size: x-large">Photos</span> <button>Create</button>
+    <span style="font-size: x-large">Photos</span>
+    <button><a href="{{route("color.index")}}">Home</a></button>
+    <button><a href="{{route("color.create")}}">Create</a></button>
     </div>
     <br>
     
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">URL</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        @yield("content")
-      </table>
+    @yield("content")
+
 
     <script src="{{asset("js/app.js")}}"></script>
 </body>

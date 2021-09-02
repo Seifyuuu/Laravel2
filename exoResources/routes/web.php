@@ -20,9 +20,6 @@ Route::get('/', function () {
     return view('welcome'); 
 });
 
-Route::get('/color', function () {
-    $color = Color::all();
-    return view('color', compact("color"));
-});
 
-// Route::resource('/color', ColorController::class);
+
+Route::resource('/color', ColorController::class);
