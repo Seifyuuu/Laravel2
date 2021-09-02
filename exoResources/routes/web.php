@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ColorController;
 use App\Models\Color;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,7 @@ Route::get('/', function () {
     return view('welcome'); 
 });
 
-
-
 Route::resource('/color', ColorController::class);
+
+
+Route::resource('/album', AlbumController::class);

@@ -17,12 +17,13 @@
         <td><img src="{{($item->url)}}" style="width: 200px" alt=""></td>
         <td>{{($item->name)}}</td>
         <td>{{($item->description)}}</td>
-        <td>
-            <button><a href="{{route("color.edit", $item->id)}}">Edit</a></button>
+        <td class="d-flex">
+            <button class="btn-success"><a href="{{route("color.edit", $item->id)}}">Edit</a></button>
+            <button class="btn-warning"><a href="{{route("color.show", $item->id)}}">Show</a></button>
             <form action="{{route("color.destroy", $item->id)}}" method="POST">
              @method('delete')
              @csrf
-             <button type="submit">Delete</button>
+             <button class="btn-danger" type="submit">Delete</button>
             </form></td>
       </tr>
     @endforeach
