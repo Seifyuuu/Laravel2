@@ -34,6 +34,18 @@
     <button><a href="{{route("album.create")}}">Create</a></button>
     </div>
     <br>
+
+    <br>
+    <div style="display: flex; justify-content: center;">
+
+    <span style="font-size: x-large">Users</span>
+</div>
+
+    <div style="display: flex; justify-content: center;">
+    <button><a href="{{route("user.index")}}">Home</a></button>
+    <button><a href="{{route("user.create")}}">Create</a></button>
+    </div>
+    <br>
     
     @yield("content")
 
