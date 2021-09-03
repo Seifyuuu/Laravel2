@@ -14,7 +14,7 @@
     @foreach ($color as $item)
     <tr>
         <th scope="row">{{($item->id)}}</th>
-        <td><img src="{{($item->url)}}" style="width: 200px" alt=""></td>
+        <td><img src="{{ asset("img/" . $item->url) }}" style="width: 200px" alt=""></td>
         <td>{{($item->name)}}</td>
         <td>{{($item->description)}}</td>
         <td class="d-flex">

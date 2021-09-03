@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Color;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ColorController extends Controller
 {
@@ -37,10 +38,11 @@ class ColorController extends Controller
     public function store(Request $request)
     {
         $color = new Color;
-        $color->url = $request->url;
+        $color->url = $request->file("url")->hashName();
         $color->name = $request->name;
         $color->description = $request->description;
         $color->save();
+        $request->file("url")->storePublicly("img", "public");
 
         return redirect()->route("color.index");
     }
@@ -76,10 +78,13 @@ class ColorController extends Controller
      */
     public function update(Request $request, Color $color)
     {
-        $color->url = $request->url;
+        Storage::disk("public")->delete("img/".$color->url);
+        $color->url = $request->file("url")->hashName();
         $color->name = $request->name;
         $color->description = $request->description;
         $color->save();
+
+        $request->file("url")->storePublicly("img", "public");
 
         return redirect()->route("color.index");
     }
@@ -92,6 +97,7 @@ class ColorController extends Controller
      */
     public function destroy(Color $color)
     {
+        Storage::disk("public")->delete("img/" . $color->url);
         $color->delete();
         return redirect()->route("color.index");
     }
