@@ -57,7 +57,7 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        return view("albumShow", compact("album"));
+        return view("albumShow", compact("album")); 
     }
 
     /**
@@ -80,15 +80,15 @@ class AlbumController extends Controller
      */
     public function update(Request $request, Album $album)
     {
-        $album->name = $request->name;
-        $album->date = $request->date;
-        $album->author = $request->author;
-        $album->profession = $request->profession;
-        $album->age = $request->age;
-        $album->description = $request->description;
-        $album->save();
+            $album->name = $request->name;
+            $album->date = $request->date;
+            $album->author = $request->author;
+            $album->profession = $request->profession;
+            $album->age = $request->age;
+            $album->description = $request->description;
+            $album->save();
 
-        return redirect()->route("album.index");
+            return redirect()->route("album.index");
     }
 
     /**

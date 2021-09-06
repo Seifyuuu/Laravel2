@@ -36,6 +36,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "name"=>["required"],
+            "prename"=>["required"],
+            "birthday"=>["required"],
+            "description"=>["required"],
+            "email"=>["required"],
+            "age"=>["required"],
+            "photo"=>["required"]
+        ]);
+
         $user = new User();
         $user->name = $request->name;
         $user->prename = $request->prename;
@@ -45,7 +55,7 @@ class UserController extends Controller
         $user->description = $request->description;
         $user->save();
         $request->file("photo")->storePublicly("img", "public");
-        return redirect()->route("user.index");
+        return redirect()->route("user.index")->with('message', "added");
     }
 
     /**
@@ -81,6 +91,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        request()->validate([
+            "name"=>["required"],
+            "prename"=>["required"],
+            "birthday"=>["required"],
+            "description"=>["required"],
+            "email"=>["required"],
+            "age"=>["required"],
+            "photo"=>["required"]
+        ]);
+
         $user->name = $request->name;
         $user->prename = $request->prename;
         $user->birthday = $request->birthday;
@@ -89,7 +109,7 @@ class UserController extends Controller
         $user->description = $request->description;
         $user->save();
 
-        return redirect()->route("user.index");
+        return redirect()->route("user.index")->with("message","updated");
     }
 
     /**

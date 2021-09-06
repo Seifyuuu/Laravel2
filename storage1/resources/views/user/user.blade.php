@@ -18,6 +18,13 @@
       </tr>
     </thead>
     <tbody>
+
+      @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+      @endif 
+      
       <tr>
 @foreach ($user as $member)
 <th scope="row">{{($member->id)}}</th>
