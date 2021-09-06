@@ -36,14 +36,25 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+
+        request()->validate([
+            "name"=>["required"],
+            "description"=>["required"],
+            "author"=>["required"],
+            "photo"=>["required"],
+            "date"=>["required"]
+        ]);
+
+
         $article = new Article();
         $article->name = $request->name;
         $article->date = $request->date;
         $article->author = $request->author;
         $article->description = $request->description;
+        $article->photo = $request->photo;
         $article->save();
         $request->file("photo")->storePublicly("img", "public");
-        return redirect()->route("article.index");
+        return redirect()->route("article.index")->with('message', "added");
 
     }
 
@@ -79,6 +90,16 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
+
+
+        request()->validate([
+            "name"=>["required"],
+            "description"=>["required"],
+            "auteur"=>["required"],
+            "photo"=>["required"],
+            "date"=>["required"]
+        ]);
+
         $article->name = $request->name;
         $article->date = $request->date;
         $article->author = $request->author;
@@ -86,7 +107,7 @@ class ArticleController extends Controller
         $article->photo = $request->photo;
         $article->save();
 
-        return redirect()->route("article.index");
+        return redirect()->route("articlegit .index")->with('message', 'updated');
     }
 
     /**
