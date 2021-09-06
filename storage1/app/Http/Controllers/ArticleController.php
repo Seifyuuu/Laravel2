@@ -90,12 +90,10 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-
-
         request()->validate([
             "name"=>["required"],
             "description"=>["required"],
-            "auteur"=>["required"],
+            "author"=>["required"],
             "photo"=>["required"],
             "date"=>["required"]
         ]);
@@ -106,8 +104,8 @@ class ArticleController extends Controller
         $article->description = $request->description;
         $article->photo = $request->photo;
         $article->save();
-
-        return redirect()->route("articlegit .index")->with('message', 'updated');
+    
+        return redirect()->route("article.index")->with('message', 'updated');
     }
 
     /**

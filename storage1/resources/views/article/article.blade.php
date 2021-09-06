@@ -23,6 +23,7 @@
             </div>
       @endif
 
+
       @foreach ($article as $item)
       <tr>
           <th scope="row">{{($item->id)}}</th>
