@@ -19,7 +19,7 @@ class CreateCommentairesTable extends Migration
             $table->string("prenom");
             $table->string("date");
             $table->text("contenu");
-            $table->foreignId("video_id")->constrained("videos", "id");
+            $table->foreignId("video_id")->constrained("videos", "id")->onDelete('cascade');
             $table->timestamps();
         });
     }

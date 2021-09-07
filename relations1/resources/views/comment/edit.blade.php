@@ -1,6 +1,15 @@
 @extends("layout.html")
 
 @section("content")
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <div style="display: flex; justify-content: center;">
     <form action="{{route("commentaires.update", $commentaire->id)}}" method="post" enctype="multipart/form-data">
         @csrf

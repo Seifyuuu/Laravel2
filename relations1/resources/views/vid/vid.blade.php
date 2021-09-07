@@ -3,6 +3,11 @@
 @section("content")
 <table class="table">
     <thead>
+      @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Titre</th>
@@ -17,9 +22,9 @@
         @foreach ($videos as $video )
         <tr>
             <td>{{$video->id}}</td>
+            <td><img style="width: 150px" src="{{$video->img}}" alt=""></td>
             <td>{{$video->titre}}</td>
             <td>{{$video->url}}</td>
-            <td>{{$video->img}}</td>
             <td>{{$video->duration}}</td>
             <td>{{$video->description}}</td>
             <td class="d-flex">

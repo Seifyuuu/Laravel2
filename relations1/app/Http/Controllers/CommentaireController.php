@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Commentaire;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class CommentaireController extends Controller
@@ -25,8 +26,8 @@ class CommentaireController extends Controller
      */
     public function create()
     {
-        $commentaire = Commentaire::all();
-        return view("comment.create", compact("commentaire"));
+        $video = Video::all();
+        return view("comment.create", compact("video"))->with("message", "created");
     }
 
     /**
@@ -37,6 +38,14 @@ class CommentaireController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "nom"=>["required"],
+            "prenom"=>["required"],
+            "date"=>["required"],
+            "contenu"=>["required"],
+            "video_id"=>["required"]
+        ]);
+
         $commentaire = new Commentaire();
         $commentaire->nom = $request->nom;
         $commentaire->prenom = $request->prenom;
@@ -44,7 +53,7 @@ class CommentaireController extends Controller
         $commentaire->contenu = $request->contenu;
         $commentaire->video_id = $request->video_id;
         $commentaire->save();
-        return redirect()->route('commentaires.index');
+        return redirect()->route('commentaires.index')->with('message', 'Created');
     }
 
     /**
@@ -78,13 +87,21 @@ class CommentaireController extends Controller
      */
     public function update(Request $request, Commentaire $commentaire)
     {
+        $request->validate([
+            "url"=>["required"],
+            "img"=>["required"],
+            "duration"=>["required"],
+            "titre"=>["required"],
+            "description"=>["required"]
+        ]);
+
         $commentaire->nom = $request->nom;
         $commentaire->prenom = $request->prenom;
         $commentaire->date = $request->date;
         $commentaire->contenu = $request->contenu;
         $commentaire->video_id = $request->video_id;
         $commentaire->save();
-        return redirect()->route('commentaires.index');
+        return redirect()->route('commentaires.index')->with('message', 'Updated');
     }
 
     /**

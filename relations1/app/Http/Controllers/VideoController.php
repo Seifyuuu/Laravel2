@@ -36,6 +36,14 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "url"=>["required"],
+            "img"=>["required"],
+            "duration"=>["required"],
+            "titre"=>["required"],
+            "description"=>["required"]
+        ]);
+
         $video = new Video();
         $video->url = $request->url;
         $video->img = $request->img;
@@ -43,7 +51,7 @@ class VideoController extends Controller
         $video->titre = $request->titre;
         $video->description = $request->description;
         $video->save();
-        return redirect()->route('videos.index');
+        return redirect()->route('videos.index')->with('message', 'Created');
     }
 
     /**
@@ -65,7 +73,7 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        return view("vid.show", compact("video"));
+        return view("vid.edit", compact("video"));
     }
 
     /**
@@ -77,13 +85,22 @@ class VideoController extends Controller
      */
     public function update(Request $request, Video $video)
     {
+        $request->validate([
+            "url"=>["required"],
+            "img"=>["required"],
+            "duration"=>["required"],
+            "titre"=>["required"],
+            "description"=>["required"]
+        ]);
+
+
         $video->url = $request->url;
         $video->img = $request->img;
         $video->duration = $request->duration;
         $video->titre = $request->titre;
         $video->description = $request->description;
         $video->save();
-        return redirect()->route('videos.index');
+        return redirect()->route('videos.index')->with('message', 'Updated');
     }
 
     /**
