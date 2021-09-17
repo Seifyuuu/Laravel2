@@ -76,6 +76,7 @@
   </div>
   <section class="home-section">
       <div class="text">Dashboard</div>
+      <p> &nbsp; &nbsp; &nbsp; Utilisez la navbar de gauche pour naviguer entre les possibilités disponibles sur le site</p>
     @yield("content")
 
   </section>
