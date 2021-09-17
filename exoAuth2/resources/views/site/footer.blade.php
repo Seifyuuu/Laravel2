@@ -5,11 +5,13 @@
             <!-- Footer Location-->
             <div class="col-lg-4 mb-5 mb-lg-0">
                 <h4 class="text-uppercase mb-4">Location</h4>
+                @foreach ($location as $item )
                 <p class="lead mb-0">
-                    2215 John Daniel Drive
+                    {{$item->text1}}
                     <br />
-                    Clark, MO 65243
+                    {{$item->text2}}
                 </p>
+                @endforeach
             </div>
             <!-- Footer Social Icons-->
             <div class="col-lg-4 mb-5 mb-lg-0">
