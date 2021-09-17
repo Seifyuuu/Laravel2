@@ -12,7 +12,7 @@
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
                     @auth
-                <li class="nav-item mx-0 mx-lg-1"><a href="{{ url('/dashboard') }}" class="nav-link py-3 px-0 px-lg-3 rounded">Dashboard</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a href="{{ url('/back') }}" class="nav-link py-3 px-0 px-lg-3 rounded">Dashboard</a></li>
                     @else
                     <li class="nav-item mx-0 mx-lg-1"><a href="{{ route('login') }}" class="nav-link py-3 px-0 px-lg-3 rounded">Log in</a></li>
                           @if (Route::has('register'))

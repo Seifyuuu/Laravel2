@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-
     <title>Document</title>
 </head>
 <body>
@@ -16,9 +15,11 @@
   </div>
     <ul class="nav-list">
       <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
+        <a href="/">
+          <i class='bx bx-home'></i>
+          <span class="links_name">Home</span>
+        </a>
+         <span class="tooltip">Home</span>
       </li>
       <li>
         <a href="/back">
@@ -49,12 +50,28 @@
        <span class="tooltip">Location</span>
      </li>
      <li>
-       <a href="#">
-         <i class='bx bx-pie-chart-alt-2' ></i>
+       <a href="/contact">
+         <i class='bx bx-network-chart' ></i>
          <span class="links_name">Social</span>
        </a>
        <span class="tooltip">Social</span>
      </li>
+     <li>
+      <span class="tooltip">Log out</span>
+
+       <form method="POST" action="{{ route('logout') }}">
+        @csrf
+
+        <x-dropdown-link :href="route('logout')"
+              onclick="event.preventDefault();
+                          this.closest('form').submit();">
+                          
+      <i class='bx bx-log-out' ></i>
+      <span class="links_name">Log Out</span>
+
+        </x-dropdown-link>
+      </form>
+    </li>
     </ul>
   </div>
   <section class="home-section">

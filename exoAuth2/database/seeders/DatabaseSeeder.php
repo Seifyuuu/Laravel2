@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AbouSeeder::class,
-            LocationSeeder::class
+            LocationSeeder::class,
+            ContactSeeder::class
         ]);
     }
 }
