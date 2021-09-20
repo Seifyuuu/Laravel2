@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
@@ -16,7 +17,9 @@ class PortfolioController extends Controller
     public function index()
     {
         $portfolio = Portfolio::all();
-        return view("back.portfolio.home", compact("portfolio"));
+        return view("back.portfolio.home", compact("portfolio"), [
+            "portfolio"=> DB::table('portfolios')->paginate(3)
+        ]);
     }
 
     /**

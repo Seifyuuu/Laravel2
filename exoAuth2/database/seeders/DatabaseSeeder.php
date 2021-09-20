@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Portfolio;
+use Database\Factories\PortfolioFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +20,7 @@ class DatabaseSeeder extends Seeder
             LocationSeeder::class,
             ContactSeeder::class
         ]);
+
+        Portfolio::factory(9)->create();
     }
 }

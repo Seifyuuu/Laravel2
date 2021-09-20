@@ -22,7 +22,9 @@ class PortfolioFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "name"=>$this->faker->name(),
+            "text"=>$this->faker->text(),
+            "img"=>$this->faker->imageUrl()
         ];
     }
 }

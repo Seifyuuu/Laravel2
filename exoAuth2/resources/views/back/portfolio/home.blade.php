@@ -5,21 +5,20 @@
 <a href="portfolio/create">Créer Portfolio</a>
 <div style="display: flex; justify-content:center; flex-direction:row">
     @foreach ($portfolio as $item)
-    <div style="display: flex; justify-content:center; align-items:center; flex-direction:column">
-        <span>{{$item->id}}</span>
-        <span>{{$item->name}}</span>
-        <span>{{$item->text}}</span>
-        <span>{{$item->photo}}</span>
-    <div style="display: flex; justify-content:center; align-items:center; flex-direction:row">
-        
-            <button class="btn-success"><a href="{{route("portfolio.edit", $item->id)}}">Edit</a></button>
-            <button class="btn-warning"><a href="{{route("portfolio.show", $item->id)}}">Show</a></button>
-            <form action="{{route("portfolio.destroy", $item->id)}}" method="POST">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{$item->id}}</h5>
+          <h5 class="card-title">{{$item->name}}</h5>
+          <h5 class="card-text">{{$item->text}}</h5>
+          <a href="{{route("portfolio.edit", $item->id)}}">Edit</a>
+          <a href="{{route("portfolio.show", $item->id)}}">Show</a></button>
+          <form action="{{route("portfolio.destroy", $item->id)}}" method="POST">
             @method('delete')
             @csrf
             <button class="btn-danger" type="submit">Delete</button>
-            </form></div>
-    </div>
+            </form>
+        </div>
+      </div>
     @endforeach
 </div>
 
