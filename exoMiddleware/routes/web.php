@@ -23,7 +23,7 @@ Route::get('/article', function () {
 
 Route::get("/back", function(){
     return view("back.home");
-})->middleware(["auth"]);
+})->middleware(["auth", "RoleVerification"]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

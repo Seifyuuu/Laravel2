@@ -6,19 +6,19 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class DatabaseSeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call([
-            RoleSeeder::class,
-            UserSeeder::class
+        DB::table('roles')->insert([
+            ["name"=>"admin"],
+            ["name"=>"membre"],
+            ["name"=>"boloss"],
         ]);
-
     }
 }
