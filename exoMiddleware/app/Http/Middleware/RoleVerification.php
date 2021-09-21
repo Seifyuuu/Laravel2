@@ -26,7 +26,6 @@ class RoleVerification
 
         }
 
-        // - Si on est connecté et qu'on a le role Admin on peut aller partout
 
 
     }

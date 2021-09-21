@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -20,5 +21,6 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class
         ]);
 
+        Article::factory(5)->create();
     }
 }

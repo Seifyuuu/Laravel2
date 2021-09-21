@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/article', function () {
-    return view('article');
-})->middleware(["auth"]);
+Route::resource('/article', ArticleController::class);
+
 
 Route::get("/back", function(){
     return view("back.home");
