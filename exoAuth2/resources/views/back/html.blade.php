@@ -14,7 +14,7 @@
       <div class="logo_name">CodingLab</div>
       <i class='bx bx-menu' id="btn" ></i>
   </div>
-    <ul class="nav-list">
+    <ul class="nav-list m-0 p-0">
       <li>
         <a href="/">
           <i class='bx bx-home'></i>
@@ -59,25 +59,22 @@
      </li>
      <li>
       <span class="tooltip">Log out</span>
-
-       <form method="POST" action="{{ route('logout') }}">
-        @csrf
-
-        <x-dropdown-link :href="route('logout')"
+      <form method="POST" action="{{ route('logout') }}">
+      @csrf
+      <x-dropdown-link :href="route('logout')"
               onclick="event.preventDefault();
                           this.closest('form').submit();">
-                          
       <i class='bx bx-log-out' ></i>
       <span class="links_name">Log Out</span>
-
         </x-dropdown-link>
       </form>
     </li>
     </ul>
   </div>
   <section class="home-section">
-      <div class="text">Dashboard</div>
-      <p> &nbsp; &nbsp; &nbsp; Utilisez la navbar de gauche pour naviguer entre les possibilités disponibles sur le site</p>
+    <br><br>
+      <div style="display: flex; justify-content:space-evenly;"><a class="btn btn-info" href="/portfolio">Portfolio</a><a class="btn btn-info" href="/abou">About</a><a class="btn btn-info" href="/location">Location</a><a class="btn btn-info" href="/contact">Social</a></div>
+      <br><br>
     @yield("content")
 
   </section>

@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AbouSeeder::class,
             LocationSeeder::class,
-            ContactSeeder::class
+            ContactSeeder::class,
+            UserSeeder::class
         ]);
 
         Portfolio::factory(9)->create();

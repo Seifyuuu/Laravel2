@@ -29,7 +29,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    $portfolio = Portfolio::all();
+    $portfolio = Portfolio::paginate(3);
     $abou = Abou::all();
     $location = Location::all();
     $contact = Contact::all();

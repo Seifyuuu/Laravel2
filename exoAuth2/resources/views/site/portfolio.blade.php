@@ -20,7 +20,10 @@
                     <img class="img-fluid" src="{{$item->img}}" alt="..." />
                 </div>
             </div>
-            @endforeach            
+            @endforeach  
+            <div style="display: flex; justify-content:center">
+            {{ $portfolio->links() }}
+            </div>          
         </div>
     </div>
 </section>

@@ -17,9 +17,8 @@ class PortfolioController extends Controller
     public function index()
     {
         $portfolio = Portfolio::all();
-        return view("back.portfolio.home", compact("portfolio"), [
-            "portfolio"=> DB::table('portfolios')->paginate(3)
-        ]);
+        return view("back.portfolio.home", compact("portfolio")
+        );
     }
 
     /**

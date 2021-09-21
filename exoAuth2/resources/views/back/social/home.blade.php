@@ -3,11 +3,11 @@
 @section("content")
 <div style="display: flex; justify-content:center; flex-direction:row">
     @foreach ($contact as $item )
-    <div style="display: flex; justify-content:center; align-items:center; flex-direction:column; margin:5px">
-        <p>ID = {{$item->id}}</p>
-        <p style="text-align: center">Nom du réseau : {{$item->name}}</p>
-        <p>Lien du réseau : {{$item->url}}</p>
-        <button class="btn-success"><a href="{{route("contact.edit", $item->id)}}">Edit</a></button>
+    <div class="card" style="width:18rem;">
+        <p class="text-center card-title">ID = {{$item->id}}</p>
+        <p class="text-center card-text">Nom du réseau : {{$item->name}}</p>
+        <p class="text-center card-text">Lien du réseau : {{$item->url}}</p>
+        <a class="btn text-center btn-primary" href="{{route("contact.edit", $item->id)}}">Edit</a>
     </div>  
     @endforeach
 </div>
