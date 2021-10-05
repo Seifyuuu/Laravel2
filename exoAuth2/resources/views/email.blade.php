@@ -8,17 +8,19 @@
     <link href="css/styles.css" rel="stylesheet" />
 
 </head>
-<body>
+<body style="background-color:lightgreen;">
     
-    Voilà le mail 
-
-    <span style="color:red;">{{$contenuMail["name"]}}</span>
-    {{-- les classes bootstrap ne fonctionnent pas  --}}
-    <span class="text-warning">{{$contenuMail["email"]}}</span>
-    <span>{{$contenuMail["phone"]}}</span>
-    <span>{{$contenuMail["message"]}}</span>
-
-    <script src="{{asset("js/scripts.js")}}"></script>
+    <span>Voilà le mail du client nommé <br><b><u>{{$contenuMail["name"]}}</b></u> <i>({{$contenuMail["phone"]}})</i></span> 
+    <div style="padding-top:1%;" >
+        <span><i>{{$contenuMail["email"]}}</i></span>
+        <div style="padding-top:5%">
+            <span>Message du client :</span>
+            <div style="border:solid black 2px; padding:3%">
+                <span>{{$contenuMail["message"]}}</span>
+            </div> 
+        </div>
+     
+    </div>
 
 </body>
 </html>
