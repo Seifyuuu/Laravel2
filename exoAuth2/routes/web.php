@@ -4,7 +4,7 @@ use App\Http\Controllers\AbouController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ContactController;
-
+use App\Http\Controllers\MailController;
 use App\Models\Abou;
 use App\Models\Location;
 use App\Models\Portfolio;
@@ -44,3 +44,6 @@ Route::resource('/portfolio', PortfolioController::class)->middleware(['auth', '
 Route::resource('/abou', AbouController::class)->middleware(['auth', 'admin']);
 Route::resource('/location', LocationController::class)->middleware(['auth', 'admin']);
 Route::resource('/contact', ContactController::class)->middleware(['auth', 'admin']);
+
+
+Route::post('/send-mail', [MailController::class, "sendMail"])->name("sendMail");
