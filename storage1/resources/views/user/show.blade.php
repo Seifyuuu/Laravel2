@@ -1,4 +1,4 @@
-;@extends("layouts.html")
+@extends("layouts.html")
 
 @section("content")
 <div style="display: flex; justify-content:center; flex-direction:column;">

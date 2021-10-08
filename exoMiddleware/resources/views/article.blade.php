@@ -1,4 +1,4 @@
 @extends('layouts.html')
 @section("content")
-    <h2 style="text-align: center">Articles</h2>
+    <h1 style="text-align: center">Articles</h1>
 @endsection

@@ -25,6 +25,6 @@ Route::get('/dashboard', function () {
 Route::get("/home", function(){
     $users = User::all();
     return view('home', compact("users"));
-});
+})->name('home');
 
 require __DIR__.'/auth.php';
